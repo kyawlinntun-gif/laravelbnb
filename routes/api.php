@@ -20,10 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /* ---------- Start of Bookables Routes ---------- */
-Route::get('/bookables', function (Request $request) {
-    return Bookable::all();
-});
-Route::get('/bookables/{id}', function (Request $request, $id) {
-    return Bookable::findOrFail($id);
-});
+Route::apiResource('/bookables', 'Api\BookableController')->only(['index', 'show']);
 /* ---------- End of Bookables Routes ---------- */

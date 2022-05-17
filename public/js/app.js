@@ -1914,11 +1914,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Bookable',
   data: function data() {
     return {
-      bookable: Object
+      bookable: Object,
+      loading: false
     };
   },
   created: function created() {
@@ -1941,6 +1959,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -37625,7 +37645,27 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-md-8" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _vm.loading
+            ? _c("div", [
+                _vm._v("\n                    Loading...\n                "),
+              ])
+            : _c("div", [
+                _c("h5", [_vm._v(_vm._s(_vm.bookable.title))]),
+                _vm._v(" "),
+                _c("article", [_vm._v(_vm._s(_vm.bookable.description))]),
+              ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-4" }, [
+      _vm._v("\n        avalibality & prices\n    "),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37664,15 +37704,33 @@ var render = function () {
               },
               [
                 _c("div", { staticClass: "card mt-2 mr-2 w-100" }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(bookable.title)),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(bookable.description)),
-                    ]),
-                  ]),
+                  _c(
+                    "div",
+                    { staticClass: "card-body" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: {
+                              name: "bookable",
+                              params: { id: bookable.id },
+                            },
+                          },
+                        },
+                        [
+                          _c("h5", { staticClass: "card-title" }, [
+                            _vm._v(_vm._s(bookable.title)),
+                          ]),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(bookable.description)),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]),
               ]
             )
@@ -37749,14 +37807,9 @@ var render = function () {
           [_vm._v("Home")]
         ),
         _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "btn",
-            attrs: { to: { name: "bookable", params: { id: 1 } } },
-          },
-          [_vm._v("Second")]
-        ),
+        _c("router-link", { staticClass: "btn", attrs: { to: "#" } }, [
+          _vm._v("Second"),
+        ]),
       ],
       1
     ),
