@@ -21,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /* ---------- Start of Bookables Routes ---------- */
 Route::apiResource('/bookables', 'Api\BookableController')->only(['index', 'show']);
+Route::get('/bookables/{bookable}/avalibility', 'Api\BookableAvalibilityController')->name('bookables.avalibility');
 /* ---------- End of Bookables Routes ---------- */
