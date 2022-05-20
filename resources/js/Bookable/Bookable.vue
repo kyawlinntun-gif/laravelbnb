@@ -1,7 +1,7 @@
 <template>
     <div class="row">
 
-        <div class="col-md-8">
+        <div class="col-md-8 pb-4">
             <div class="card">
                 <div class="card-body">
                     <div v-if="loading">
@@ -15,15 +15,20 @@
             </div>
         </div>
 
-        <div class="col-md-4">
-            avalibality & prices
+        <div class="col-md-4 pb-4">
+            <Avalibility/>
         </div>
     </div>
 </template>
 
 <script>
+import Avalibility from './Avalibility.vue';
+
 export default {
     name: 'Bookable',
+    components: {
+        Avalibility
+    },
     data() {
         return {
             bookable: Object,
