@@ -21,6 +21,8 @@ class BookableAvalibilityController extends Controller
             'to' => 'required|date_format:Y-m-d|after_or_equal:from'
         ]);
 
-        dd($bookable->bookings()->betweenDates($data['from'], $data['to'])->count());
+        return $bookable->avalibaleFor($data['from'], $data['to'])
+                ? response()->json([])
+                : response()->json([], 404);
     }
 }
