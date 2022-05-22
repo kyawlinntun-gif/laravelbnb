@@ -13,6 +13,7 @@
                     </div>
                 </div>
             </div>
+            <ReviewList/>
         </div>
 
         <div class="col-md-4 pb-4">
@@ -23,12 +24,14 @@
 
 <script>
 import Avalibility from './Avalibility.vue';
+import ReviewList from './ReviewList.vue';
 
 export default {
     name: 'Bookable',
     components: {
-        Avalibility
-    },
+    Avalibility,
+    ReviewList
+},
     data() {
         return {
             bookable: Object,
